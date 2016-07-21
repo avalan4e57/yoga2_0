@@ -1,3 +1,48 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.showNextDiv').click(function () {
+          // $('.hiddenDiv').not($(this)).slideUp('slow');
+          $(this).next('div').stop(true, true).slideToggle('slow');
+        });
+        $('.hideMenu').click(function () {
+          $('.hiddenDiv').slideUp();
+        });
+      });
+    </script>
+    <style>
+      .hideMenu {
+        color: black;
+      }
+      .showNextDiv {
+        display:block;
+        cursor:pointer;
+        color:black;
+        position: fixed;
+        top: 45%;
+        left: 0%;
+      }
+      .hiddenDiv {
+        opacity: 0.95;
+        overflow: auto;
+        margin-top: 50px;
+        display: none;
+        position: fixed;
+        list-style:none;
+        padding: 10px;
+        /*margin: 0;*/
+        /*box-sizing: border-box;*/
+        /*width: device-width;*/
+        background-color: #eee;
+        height: 80%;
+        top: 0;
+        /*left: 200px;*/
+        transition: left .2s;
+        z-index: 2;
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+      }
+    </style>
 <?
     $query = "SELECT * FROM asanas.asanas";
     $asanasArray = mysql_query($query);
